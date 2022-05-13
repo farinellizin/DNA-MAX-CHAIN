@@ -27,15 +27,12 @@ int main () {
     create_empty_list(&smaller_sequence_array);
     file_name = "smallersequence.txt";
     read_sequence(&smaller_sequence_array, file_name);
-    //list_print(&smaller_sequence_array);
 
     List biggest_sequence_array;
     create_empty_list(&biggest_sequence_array);
     file_name = "biggestsequence.txt";
     read_sequence(&biggest_sequence_array, file_name);
-    //list_print(&biggest_sequence_array);
-
-    //find_initial_positions(&biggest_sequence_array, &smaller_sequence_array);
+    
     solve(&biggest_sequence_array, &smaller_sequence_array);
 
     return 0;

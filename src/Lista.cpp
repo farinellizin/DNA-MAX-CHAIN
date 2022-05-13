@@ -20,8 +20,9 @@ void list_print(List *l){
 }
 
 void solve (List *maior, List *menor) {
-    int i = 0, j = 0, cont = 0, pos_inicial, pos_final;
-
+    int i = 0, j = 0, cont = 0, initial_pos, final_pos;
+    bool found = false;
+    
     while (i < maior -> last) {
         if (maior -> vet[i].val == menor -> vet[j].val) {
             cont++;
@@ -32,13 +33,21 @@ void solve (List *maior, List *menor) {
         }
         
         if (cont == menor -> last) {
-            pos_final = i;
-            pos_inicial = pos_final - (menor -> last - 1);
+            final_pos = i;
+            initial_pos = final_pos - (menor -> last - 1);
             i = maior -> last;
+            found = true;
         }
         i++;
     } 
 
-    cout << "POSICAO INICIAL: " << pos_inicial << endl;
-    cout << "POSICAO FINAL: " << pos_final << endl;
+    if (found == true) {
+        cout << endl << endl << "\t\t~ Exact sequence found ~" << endl << endl;
+        cout << "\tFirst position: " << initial_pos << endl;
+        cout << "\tLast position: " << final_pos << endl << endl << endl;
+    } else {
+        cout << "Exact sequence not found." << endl;
+    }
+        
+        
 }
